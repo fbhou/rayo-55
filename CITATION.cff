@@ -9,7 +9,12 @@ repository-code: "https://github.com/fbhou/rayo-55"
 url: "https://github.com/fbhou/rayo-55"
 version: 1.0.0
 date-released: 2026-08-25
+doi: "10.5281/zenodo.22089206"
 license: MIT
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22089205"
+    description: "Concept DOI for all versions"
 keywords:
   - Rayo's function
   - first-order set theory
@@ -25,4 +30,5 @@ preferred-citation:
       alias: "GPT-5.6 Sol"
   title: "A 55-Symbol First-Order Set-Theoretic Definition of 2"
   year: 2026
+  doi: "10.5281/zenodo.22089206"
   url: "https://github.com/fbhou/rayo-55/blob/v1.0.0/note.pdf"

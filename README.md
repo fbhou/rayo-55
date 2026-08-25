@@ -1,5 +1,7 @@
 # A 55-symbol definition of 2
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22089206.svg)](https://doi.org/10.5281/zenodo.22089206)
+
 This repository records a first-order set-theoretic formula that uniquely
 defines the von Neumann integer
 `2 = {∅, {∅}}` in 55 symbols. Under the convention that `Rayo(n)`
@@ -70,17 +72,15 @@ one symbol. Rayo's own language and satisfaction presentation appear on the
 
 ## Releases and Zenodo
 
-This repository is ready for the official GitHub--Zenodo integration:
+The official GitHub--Zenodo integration is enabled for this repository. Release
+[`v1.0.0`](https://github.com/fbhou/rayo-55/releases/tag/v1.0.0) is archived at
+[version DOI `10.5281/zenodo.22089206`](https://doi.org/10.5281/zenodo.22089206).
+The stable concept DOI for all versions is
+[`10.5281/zenodo.22089205`](https://doi.org/10.5281/zenodo.22089205).
 
-1. Link the repository owner's GitHub account in Zenodo.
-2. In Zenodo's GitHub settings, enable `fbhou/rayo-55`.
-3. Create a GitHub release from the prepared version tag.
-4. Zenodo will ingest the release and assign its version-specific DOI.
-
-Repeat step 3 for later versions to obtain a DOI for each archived release.
-Zenodo can read the metadata directly from `CITATION.cff`. See Zenodo's current
-guides for [enabling a repository](https://help.zenodo.org/docs/github/enable-repository/)
-and [archiving a GitHub release](https://help.zenodo.org/docs/github/archive-software/github-upload/).
+Each future GitHub release will be ingested automatically and assigned its own
+version DOI. Zenodo reads the release metadata from `CITATION.cff`. See Zenodo's
+guide to [archiving a GitHub release](https://help.zenodo.org/docs/github/archive-software/github-upload/).
 
 ## Provenance
 
