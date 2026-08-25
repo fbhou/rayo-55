@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this construction, please cite the note and this repository."
+title: "A 55-symbol first-order set-theoretic definition of 2"
+type: software
+authors:
+  - name: "GPT-5.6 Sol"
+    alias: "GPT-5.6 Sol"
+repository-code: "https://github.com/fbhou/rayo-55"
+url: "https://github.com/fbhou/rayo-55"
+version: 1.0.0
+date-released: 2026-08-25
+license: MIT
+keywords:
+  - Rayo's function
+  - first-order set theory
+  - descriptive complexity
+  - von Neumann ordinal
+abstract: >-
+  A 55-symbol first-order set-theoretic formula uniquely defining the von
+  Neumann integer 2, together with a recursive syntax-tree counter and proof.
+preferred-citation:
+  type: report
+  authors:
+    - name: "GPT-5.6 Sol"
+      alias: "GPT-5.6 Sol"
+  title: "A 55-Symbol First-Order Set-Theoretic Definition of 2"
+  year: 2026
+  url: "https://github.com/fbhou/rayo-55/blob/v1.0.0/note.pdf"
