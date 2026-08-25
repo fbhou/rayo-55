@@ -74,8 +74,9 @@ one symbol. Rayo's own language and satisfaction presentation appear on the
 
 The official GitHub--Zenodo integration is enabled for this repository. The
 anonymous-author revision is
-[`v1.0.1`](https://github.com/fbhou/rayo-55/releases/tag/v1.0.1). The stable
-concept DOI for all versions is
+[`v1.0.1`](https://github.com/fbhou/rayo-55/releases/tag/v1.0.1), archived at
+[version DOI `10.5281/zenodo.22089268`](https://doi.org/10.5281/zenodo.22089268).
+The stable concept DOI for all versions is
 [`10.5281/zenodo.22089205`](https://doi.org/10.5281/zenodo.22089205).
 
 Each future GitHub release will be ingested automatically and assigned its own
