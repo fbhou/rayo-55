@@ -1,6 +1,6 @@
 # A 55-symbol definition of 2
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22089206.svg)](https://doi.org/10.5281/zenodo.22089206)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22089205.svg)](https://doi.org/10.5281/zenodo.22089205)
 
 This repository records a first-order set-theoretic formula that uniquely
 defines the von Neumann integer
@@ -72,10 +72,10 @@ one symbol. Rayo's own language and satisfaction presentation appear on the
 
 ## Releases and Zenodo
 
-The official GitHub--Zenodo integration is enabled for this repository. Release
-[`v1.0.0`](https://github.com/fbhou/rayo-55/releases/tag/v1.0.0) is archived at
-[version DOI `10.5281/zenodo.22089206`](https://doi.org/10.5281/zenodo.22089206).
-The stable concept DOI for all versions is
+The official GitHub--Zenodo integration is enabled for this repository. The
+anonymous-author revision is
+[`v1.0.1`](https://github.com/fbhou/rayo-55/releases/tag/v1.0.1). The stable
+concept DOI for all versions is
 [`10.5281/zenodo.22089205`](https://doi.org/10.5281/zenodo.22089205).
 
 Each future GitHub release will be ingested automatically and assigned its own
@@ -84,7 +84,10 @@ guide to [archiving a GitHub release](https://help.zenodo.org/docs/github/archiv
 
 ## Provenance
 
-GPT-5.6 Sol found the formula on 2026-08-25 in an interactive search assisted by
+The construction arose on 2026-08-25 in an interactive search with
 [OpenAI GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol).
-The Git history separates the initial formula from later proof and packaging
-revisions so their timestamps remain inspectable.
+At the repository maintainer's request, the public note is authored as GPT-5.6
+Sol and does not name the maintainer. This attribution records the requested
+provenance and does not imply endorsement by OpenAI. The Git history separates
+the initial formula from later proof and packaging revisions so their
+timestamps remain inspectable.

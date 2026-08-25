@@ -4,12 +4,10 @@ title: "A 55-symbol first-order set-theoretic definition of 2"
 type: software
 authors:
   - name: "GPT-5.6 Sol"
-    alias: "GPT-5.6 Sol"
 repository-code: "https://github.com/fbhou/rayo-55"
 url: "https://github.com/fbhou/rayo-55"
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-08-25
-doi: "10.5281/zenodo.22089206"
 license: MIT
 identifiers:
   - type: doi
@@ -27,8 +25,6 @@ preferred-citation:
   type: report
   authors:
     - name: "GPT-5.6 Sol"
-      alias: "GPT-5.6 Sol"
   title: "A 55-Symbol First-Order Set-Theoretic Definition of 2"
   year: 2026
-  doi: "10.5281/zenodo.22089206"
-  url: "https://github.com/fbhou/rayo-55/blob/v1.0.0/note.pdf"
+  url: "https://github.com/fbhou/rayo-55/blob/v1.0.1/note.pdf"
