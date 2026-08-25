@@ -1,0 +1,174 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,
+  citecolor=blue!55!black]{hyperref}
+
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}
+\newcommand{\Rayo}{\operatorname{Rayo}}
+
+\title{A 55-Symbol First-Order Set-Theoretic Definition of 2}
+\author{GPT-5.6 Sol\thanks{GitHub: \url{https://github.com/fbhou}}}
+\date{25 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a 55-symbol formula in the austere first-order language of set theory
+that is satisfied by exactly the von Neumann integer
+$2=\{\varnothing,\{\varnothing\}\}$.  The symbol count is certified by a
+recursive parser, and a short uniqueness proof is given from Extensionality
+and Foundation.  Under the convention that $\Rayo(n)$ permits at most $n$
+symbols, the construction proves $\Rayo(55)\geq 3$.
+\end{abstract}
+
+\section{Definition of the language}
+
+We use variables as one-symbol tokens and the primitive formula grammar from
+Rayo's presentation of satisfaction in first-order set theory \cite{rayo}:
+\[
+  \phi ::= u\in v \mid u=v \mid (\neg\phi)
+       \mid (\phi\wedge\psi) \mid \exists u(\phi).
+\]
+Every variable, relation sign, connective, quantifier, and parenthesis counts
+as one symbol; whitespace is absent from canonical strings.  Thus an atomic
+formula costs $3$ symbols, negation and conjunction add $3$, and existential
+quantification adds $4$.  The sole free variable below is $x$.  Semantics are
+the standard, well-founded semantics of sets.  We write
+$0=\varnothing$, $1=\{0\}$, and $2=\{0,1\}$.
+
+The position of parentheses around negation is a presentation convention.
+Rayo's grammar writes $(\neg\phi)$, while the initially discovered display
+used $\neg(\phi)$.  Moving the opening parenthesis across $\neg$ preserves
+both meaning and length.  The repository records the former as its canonical
+form.
+
+\section{The 55-symbol formula}
+
+The canonical string in \texttt{formula.txt} is
+\begin{center}
+\small\ttfamily
+$\exists$a($\exists$b(((a$\in$b$\wedge$(a$\in$x$\wedge$b$\in$x))$\wedge$
+($\neg$$\exists$c($\exists$d((c$\in$d$\wedge$(d$\in$x$\wedge$
+($\neg$a=c)))))))))
+\end{center}
+Its more readable, associatively faithful expansion is
+\begin{align*}
+\varphi(x)\equiv \exists a\,\exists b\;\bigl[&
+  \bigl(a\in b\ \wedge\ (a\in x\ \wedge\ b\in x)\bigr)\\[-2pt]
+  &\wedge\ \neg\exists c\,\exists d\;
+  \bigl(c\in d\ \wedge\ (d\in x\ \wedge\ a\ne c)\bigr)\bigr],
+\end{align*}
+where $a\ne c$ abbreviates the primitive subformula $\neg(a=c)$.
+
+\section{Symbol count}
+
+For a syntax tree $T$, define its length recursively by
+\[
+\begin{array}{rcl@{\qquad}rcl}
+L(u\in v)&=&3, & L(u=v)&=&3,\\
+L((\neg\phi))&=&L(\phi)+3,&
+L((\phi\wedge\psi))&=&L(\phi)+L(\psi)+3,\\
+L(\exists u(\phi))&=&L(\phi)+4.&&
+\end{array}
+\]
+The tree has six atomic leaves, five conjunctions, two negations, and four
+existential quantifiers.  Hence
+\[
+  L(\varphi)=6\cdot3+5\cdot3+2\cdot3+4\cdot4
+             =18+15+6+16=\boxed{55}.
+\]
+The supplied \texttt{count.py} parses the canonical string, computes this
+recurrence, checks that the raw Unicode-code-point count agrees, and requires
+an exact serialization round trip.
+
+\section{Uniqueness proof}
+
+\begin{theorem}
+In the standard universe of sets, $\varphi(x)$ holds if and only if $x=2$.
+\end{theorem}
+
+\begin{proof}
+Suppose $\varphi(x)$, and choose witnesses $a,b$.  The first conjunct gives
+\[
+  a\in b,\qquad a\in x,\qquad b\in x. \qquad\text{(1)}
+\]
+The last conjunct is equivalent to
+\[
+  \text{for every }d\in x\text{ and every }c\in d,\quad c=a.
+  \qquad\text{(2)}
+\]
+
+Apply (2) to $d=a$, which is allowed by (1).  If $a$ had an element $c$,
+then $c=a$, so $a\in a$.  Foundation excludes self-membership; consequently
+$a$ has no elements, and Extensionality gives $a=\varnothing=0$.
+
+Apply (2) next to $d=b$.  Every element of $b$ is $a$, while (1) says
+$a\in b$.  Therefore $b=\{a\}=1$.
+
+Finally let $d\in x$.  By (2), all elements of $d$ equal $a$.  If $d$ is
+empty then $d=a$.  If $d$ is nonempty, one of its elements must be $a$, and
+then Extensionality gives $d=\{a\}=b$.  Thus $x\subseteq\{a,b\}$; (1) gives
+the reverse inclusion.  Hence $x=\{a,b\}=\{0,1\}=2$.
+
+Conversely, take $x=2$, $a=0$, and $b=1$.  Then (1) holds.  If $d\in2$,
+then $d$ is either $0$ or $1$; every element of such a $d$, if any, is $0=a$.
+So the forbidden witnesses $c,d$ do not exist, and $\varphi(2)$ holds.
+\end{proof}
+
+Foundation is essential to this short argument: without well-foundedness,
+the condition on $a$ would still permit a Quine atom satisfying $a=\{a\}$.
+
+\section{Consequences for \texorpdfstring{$\Rayo(55)$}{Rayo(55)} and the public baseline}
+
+Let $\Rayo(n)$ denote the least natural number strictly larger than every
+finite natural uniquely named by a formula of at most $n$ symbols in the
+language above.  The theorem supplies a 55-symbol name for $2$, so
+\[
+  \Rayo(55)>2,\qquad\text{and therefore}\qquad \boxed{\Rayo(55)\geq3}.
+\]
+With a ``fewer than $n$'' rather than an ``at most $n$'' indexing convention,
+the identical statement is instead written $\Rayo_{<}(56)\geq3$.
+
+As accessed on 25 August 2026, the Googology Wiki listed a 56-symbol formula
+as the current public string for $2$ and recorded $\Rayo(56)\geq3$
+\cite{googology}.  The present construction improves that listed string by
+one symbol.  No optimality claim is made here: ruling out all strings of
+length at most 54 is a separate problem.
+
+\section{Provenance and acknowledgements}
+
+The formula was found by GPT-5.6 Sol on 25 August 2026 during an interactive
+search assisted by OpenAI's GPT-5.6 Sol \cite{openai}.  The model also assisted
+with proof checking and preparation of the reproducibility files; the author
+retains responsibility for the mathematical claims.  The Git history records
+the initial formula and subsequent verification revisions with explicit
+timestamps.  Releases are prepared for archival through the GitHub--Zenodo
+integration, with a version-specific DOI assigned by Zenodo for each archived
+release.
+
+\begin{thebibliography}{9}
+\bibitem{rayo}
+A. Rayo, \emph{Big Number Duel}, 2007.\
+\url{https://web.mit.edu/arayo/www/bignums.html}
+
+\bibitem{googology}
+Googology Wiki, \emph{Rayo's number}, section ``Known values of Rayo's
+function,'' accessed 25 August 2026.\
+\url{https://googology.fandom.com/wiki/Rayo%27s_number}
+
+\bibitem{openai}
+OpenAI, \emph{GPT-5.6 Sol model documentation}, accessed 25 August 2026.\
+\url{https://developers.openai.com/api/docs/models/gpt-5.6-sol}
+\end{thebibliography}
+
+\end{document}

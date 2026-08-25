@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -123,6 +124,9 @@ def node_counts(tree: Formula) -> Counter[str]:
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     default_formula = Path(__file__).with_name("formula.txt")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("formula", nargs="?", type=Path, default=default_formula)
